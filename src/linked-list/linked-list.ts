@@ -28,4 +28,16 @@ export default class LinkedList {
       this.size += 1
     }
   }
+
+  toString(): string {
+    
+    var current = this.head
+    var string = '';
+
+    while(current.next) {
+      string += String(current.node) + '-'
+    }
+
+    return string;
+  }
 }
