@@ -59,6 +59,7 @@ export default class LinkedList {
       this.size += 1
     }
   }
+
   removeAt(index: number): void {
     if (index < 0 || index >= this.size) {
       throw new Error("Index out of range")
@@ -86,6 +87,27 @@ export default class LinkedList {
       return current.node
     }
   }
+
+  removeElement(element: any): any {
+    let current = this.head
+    let prev = null;
+
+    while (current !== null) {
+      if (current.node == element) {
+        if (prev == null) {
+          this.head = current.next
+        } else {
+          prev.next = current.next
+        }
+        this.size -= 1
+        return current.node
+      }
+      prev = current;
+      current = current.next;
+    }
+    return - 1
+  }
+
   toString(): string {
 
     var current = this.head
@@ -98,4 +120,5 @@ export default class LinkedList {
 
     return string;
   }
+
 }
