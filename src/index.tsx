@@ -18,7 +18,7 @@ console.log(linkedList.toString())
 // linkedList.insertAt(1, 8)
 
 // console.log("Removed", linkedList.removeAt(1))
-console.log("Removed", linkedList.removeElement(1))
-console.log("Removed", linkedList.removeElement(3))
+// console.log("Removed", linkedList.removeElement(1))
+console.log("Removed", linkedList.indexOf(3))
 
 console.log(linkedList.toString())

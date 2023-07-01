@@ -1,6 +1,7 @@
+import { LinkedListI } from './linked-list.interface';
 import NodeElement from './node-list';
 
-export default class LinkedList {
+export default class LinkedList implements LinkedListI {
   head: any
   tail: any
   size: number
@@ -9,6 +10,12 @@ export default class LinkedList {
     this.head = null
     this.tail = null
     this.size = 0
+  }
+  isEmpty(): boolean {
+    return this.size === 0
+  }
+  sizeOfList(): number {
+    return this.size
   }
 
   add(element: any): void {
@@ -107,15 +114,29 @@ export default class LinkedList {
     }
     return - 1
   }
+  //TODO add another type of search this is O(N)
+  indexOf(element: any): any {
+    let current = this.head
+    let index = 0;
 
+    while (current !== null) {
+      if (current.node == element) {
+        return index;
+      }
+      index += 1;
+      current = current.next;
+    }
+    return - 1
+  }
+  
   toString(): string {
 
     var current = this.head
-    var string = JSON.stringify(this.head.node) + '-';
+    var string = JSON.stringify(this.head.node) + ' ';
 
     while (current.next) {
       current = current.next;
-      string += JSON.stringify(current.node) + '-';
+      string += JSON.stringify(current.node) + ' ';
     }
 
     return string;
