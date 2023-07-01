@@ -38,16 +38,16 @@ export default class LinkedList {
       let current = this.head
       let prev
 
-      if( index === 0){
+      if (index === 0) {
         node.next = this.head
         this.head = node
 
-      }else{
+      } else {
         current = this.head
 
         let i = 0;
 
-        while(i < index){
+        while (i < index) {
           i++
           prev = current;
           current = current.next;
@@ -57,6 +57,32 @@ export default class LinkedList {
 
       }
       this.size += 1
+    }
+  }
+  removeAt(index: number): void {
+    if (index < 0 || index >= this.size) {
+      throw new Error("Index out of range")
+    } else {
+
+      let current = this.head
+      let prev
+
+      if (index === 0) {
+        this.head = this.head.next
+
+      } else {
+        current = this.head
+
+        let i = 0;
+
+        while (i < index) {
+          i++
+          prev = current;
+          current = current.next;
+        }
+        prev.next = current.next
+      }
+      this.size -= 1
     }
   }
   toString(): string {
