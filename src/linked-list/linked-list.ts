@@ -83,6 +83,7 @@ export default class LinkedList {
         prev.next = current.next
       }
       this.size -= 1
+      return current.node
     }
   }
   toString(): string {
