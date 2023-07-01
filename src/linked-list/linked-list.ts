@@ -25,8 +25,8 @@ export default class LinkedList {
       }
 
       current.next = node
-      this.size += 1
     }
+    this.size += 1
   }
 
   insertAt(index: number, element: any): void {
