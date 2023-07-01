@@ -54,7 +54,9 @@ export default class LinkedList {
         }
         prev.next = node
         node.next = current
+
       }
+      this.size += 1
     }
   }
   toString(): string {
