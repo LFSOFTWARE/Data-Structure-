@@ -15,7 +15,8 @@ linkedList.add(nodeC)
 console.log(linkedList.toString())
 
 
-linkedList.insertAt(1, 8)
+// linkedList.insertAt(1, 8)
+
+console.log("Removed", linkedList.removeAt(1))
 
 console.log(linkedList.toString())
-console.log(linkedList.size)
