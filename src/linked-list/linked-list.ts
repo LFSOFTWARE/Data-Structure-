@@ -19,7 +19,7 @@ export default class LinkedList {
       this.head = node
     } else {
       current = this.head
-      
+
       while (current.next) {
         current = current.next
       }
@@ -29,13 +29,42 @@ export default class LinkedList {
     }
   }
 
-  toString(): string {
-    
-    var current = this.head
-    var string = '';
+  insertAt(index: number, element: any): void {
+    if (index < 0 || index >= this.size) {
+      throw new Error("Index out of range")
+    } else {
+      const node = new NodeElement(element);
 
-    while(current.next) {
-      string += String(current.node) + '-'
+      let current = this.head
+      let prev
+
+      if( index === 0){
+        node.next = this.head
+        this.head = node
+
+      }else{
+        current = this.head
+
+        let i = 0;
+
+        while(i < index){
+          i++
+          prev = current;
+          current = current.next;
+        }
+        prev.next = node
+        node.next = current
+      }
+    }
+  }
+  toString(): string {
+
+    var current = this.head
+    var string = JSON.stringify(this.head.node) + '-';
+
+    while (current.next) {
+      current = current.next;
+      string += JSON.stringify(current.node) + '-';
     }
 
     return string;
